@@ -14,15 +14,13 @@ jobs:
 
       - name: docker login 
         env: 
-          DOCKER_USER: ${{secrets.DOCKERHUB_USER}} 
-          DOCKER_PASS: ${{secrets.DOCKERHUB_PASS}} 
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }} 
+          DOCKER_PASS: ${{ secrets.DOCKERHUB_PASS }} 
         run: | 
           docker login -u $DOCKER_USER -p $DOCKER_PASS 
 
-           - name: Build the Docker image
-            run: docker build ./randomquotes-flask-master --tag davidag31/express-randomquotes:latest
-
-
+      - name: Build the Docker image
+        run: docker build ./randomquotes-flask-main --tag davidag31/express-randomquotes:latest
 
       - name: Docker Push
         run: docker push davidag31/express-randomquotes
