@@ -20,7 +20,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASS 
 
            - name: Build the Docker image
-           run: docker build . --file Dockerfile --tag davidag31/express-randomquotes:latest
+            run: docker build ./randomquotes-flask-master --tag davidag31/express-randomquotes:latest
 
 
 
